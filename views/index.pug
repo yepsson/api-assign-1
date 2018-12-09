@@ -1,0 +1,28 @@
+doctype html
+html
+    head
+        link(rel='stylesheet', href='style.css', type='text/css')
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+        title Restaurang
+body
+    h1 Lista över maträtter i restaurangen!
+    include get_form
+    br
+    br 
+    table(style='width:50%', border='1')
+        tr
+            td="Namn:"
+            td="Antal:"
+            td="Pris:"
+        each val in foods
+            tr
+                td=val.namn
+                td=val.antal
+                td=val.pris
+                td
+                    button(class='delete' data=val.namn type='submit') Ta bort
+                td
+                    button(class='change'  data-namn=val.namn data-antal=val.antal data-pris=val.pris type='submit') Ändra
+
+script
+     include ../script/script.js
